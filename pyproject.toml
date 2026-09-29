@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "password-generator"
+version = "1.0.0"
+description = "A cryptographically secure, customizable password and passphrase generator with entropy evaluation."
+authors = [{ name = "Security Engineer" }]
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["password", "generator", "security", "passphrase", "secrets", "entropy", "cli"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Security :: Cryptography",
+]
+dependencies = []
+
+[project.optional-dependencies]
+clipboard = ["pyperclip>=1.8.2"]
+test = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+password-gen = "password_generator.cli:main"
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --strict-markers"
